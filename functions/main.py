@@ -26,7 +26,6 @@ def processtask(req: tasks_fn.CallableRequest) -> str:
 
 @https_fn.on_request()
 def enqueue(_: https_fn.Request) -> https_fn.Response:
-    """Adds backup tasks to a Cloud Tasks queue."""
     tasks_client = tasks_v2.CloudTasksClient()
     task_queue = tasks_client.queue_path(
         PROJECT_ID, SupportedRegion.US_CENTRAL1.value, "processtask"

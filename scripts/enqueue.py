@@ -14,7 +14,6 @@ from google.auth.transport.requests import AuthorizedSession
 
 
 def enqueue(project_id, service_account_email):
-    """Adds backup tasks to a Cloud Tasks queue."""
     tasks_client = tasks_v2.CloudTasksClient()
     task_queue = tasks_client.queue_path(
         project_id, SupportedRegion.US_CENTRAL1.value, "processtask"
